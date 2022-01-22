@@ -8,7 +8,7 @@ module.exports = {
     extend: {},
   },
   plugins: [
-    require('./plugins/index.js')({
+    require('@ramosdiego/ui')({
       buttons: {
         colors: ['blue', 'red', 'green'],
         themes: ['light', 'dark'],
@@ -19,6 +19,11 @@ module.exports = {
         colors: ['blue', 'red', 'green', 'neutral'],
         themes: ['light', 'dark'],
         styles: ['underline', 'outline'],
+      },
+      badges: {
+        colors: ['blue', 'red', 'green', 'neutral'],
+        themes: ['light', 'dark'],
+        styles: ['fill', 'outline'],
       },
     }),
   ],

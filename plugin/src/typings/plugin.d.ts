@@ -15,21 +15,10 @@ interface Helpers {
 
 interface PluginOptions {
   buttons?: {
-    colors: string[]
-    themes: ('light' | 'dark')[]
-    styles: ('fill' | 'outline' | 'ghost')[]
     animate?: boolean
   }
-  inputs?: {
-    colors: string[]
-    themes: ('light' | 'dark')[]
-    styles: ('underline' | 'outline')[]
-  }
-  badges?: {
-    colors: string[]
-    themes: ('light' | 'dark')[]
-    styles: ('fill' | 'outline')[]
-  }
+  inputs?: {}
+  badges?: {}
 }
 
 declare module 'tailwindcss/plugin' {

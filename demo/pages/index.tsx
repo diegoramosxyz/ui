@@ -103,12 +103,12 @@ const Home: NextPage = () => {
       <div>
         <div className="grid grid-cols-3 place-items-center h-screen">
           <div className="space-y-4">
-            <button className="btn-blue-fill">
-              fill blue button with icon
+            <button className="btn-brown-fill">
+              fill brown button with icon
               <HiArrowNarrowRight className="h-5 w-5" />
             </button>
-            <button disabled className="btn-blue-fill">
-              disabled fill blue button with icon
+            <button disabled className="btn-brown-fill">
+              disabled fill brown button with icon
               <HiArrowNarrowRight className="h-5 w-5" />
             </button>
           </div>

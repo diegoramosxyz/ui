@@ -13,12 +13,24 @@ interface Helpers {
   postcss: any
 }
 
+type UserStyles = ({ theme }: { theme: Helpers['theme'] }) =>
+  | {
+      [x: string]: any
+    }
+  | { [x: string]: any }
+
 interface PluginOptions {
+  globalStyles?: UserStyles
   buttons?: {
     animate?: boolean
+    baseStyles?: UserStyles
   }
-  inputs?: {}
-  badges?: {}
+  inputs?: {
+    baseStyles?: UserStyles
+  }
+  badges?: {
+    baseStyles?: UserStyles
+  }
 }
 
 declare module 'tailwindcss/plugin' {

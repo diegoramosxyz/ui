@@ -23,15 +23,40 @@ module.exports = {
     },
   },
   plugins: [
-    // require('../plugin/dist/index.js')({
-    //   buttons: {
-    //     animate: true,
-    //   },
-    // }),
     require('@ramosdiego/ui')({
+      // Add custom global base styles using theme
+      // globalStyles: ({ theme }) => ({
+      //   fontWeight: theme('fontWeight[bold]'),
+      //   fontSize: theme('fontSize[xl]'),
+      // }),
+
+      // Add custom global base styles
+      // globalStyles: {
+      //   textTransform: 'normal-case',
+      //   fontWeight: 800,
+      //   borderRadius: '10px',
+      // },
+
       buttons: {
         animate: true,
+        // Add custom button base styles using theme
+        // baseStyles: ({ theme }) => ({
+        //   fontWeight: theme('fontWeight[light]'),
+        //   fontSize: theme('fontSize[sm]'),
+        // }),
+
+        // Add custom button base styles
+        // baseStyles: {
+        //   textTransform: 'normal-case',
+        //   fontWeight: 800,
+        //   borderRadius: '10px',
+        // },
       },
     }),
   ],
+  // require('../plugin/dist/index.js')({
+  //   buttons: {
+  //     animate: true,
+  //   },
+  // }),
 }

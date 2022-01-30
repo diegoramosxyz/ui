@@ -1,15 +1,22 @@
+import getStyles from './userStyles'
+
 export default function buttons(
-  buttons: PluginOptions['buttons'],
+  options: PluginOptions,
   theme: Helpers['theme'],
   addBase: Helpers['addBase'],
   colors: string[]
 ) {
   const components: { [x: string]: {} } = {}
+  const { buttons, globalStyles } = options
+
+  const userGlobalStyles = getStyles(theme, globalStyles)
+  const userButtonBaseStyles = getStyles(theme, buttons?.baseStyles)
 
   // BASE BUTTON STYLES
   const buttonBaseStyles: { [x: string]: any } = {
+    width: '100%',
     padding: `${theme(`spacing[2]`)} ${theme(`spacing[4]`)}`,
-    borderRadius: theme(`borderRadius[md]`),
+    borderRadius: theme(`borderRadius[DEFAULT]`),
     fontWeight: theme(`fontWeight[medium]`),
     textTransform: 'uppercase',
     userSelect: 'none',
@@ -25,7 +32,10 @@ export default function buttons(
     // For button with icons
     display: 'flex',
     alignItems: 'center',
+    justifyContent: 'center',
     gap: theme(`spacing[2]`),
+    ...userGlobalStyles,
+    ...userButtonBaseStyles,
   }
 
   if (buttons?.animate) {

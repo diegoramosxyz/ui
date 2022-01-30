@@ -9,9 +9,9 @@ module.exports = plugin.withOptions(
     ({ addBase, addComponents, theme, config }) => {
       const colors = getColors(config)
       addComponents({
-        ...buttons(options.buttons, theme, addBase, colors),
-        ...inputs(options.inputs, theme, colors),
-        ...badges(options.badges, theme, colors),
+        ...buttons(options, theme, addBase, colors),
+        ...inputs(options, theme, colors),
+        ...badges(options, theme, colors),
       })
     }
 )

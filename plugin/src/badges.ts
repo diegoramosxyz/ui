@@ -1,9 +1,15 @@
+import getStyles from './userStyles'
+
 export default function badges(
-  badges: PluginOptions['badges'],
+  options: PluginOptions,
   theme: Helpers['theme'],
   colors: string[]
 ) {
   const components: { [x: string]: {} } = {}
+  const { badges, globalStyles } = options
+
+  const userGlobalStyles = getStyles(theme, globalStyles)
+  const userBadgesBaseStyles = getStyles(theme, badges?.baseStyles)
 
   const badgeBaseStyles = {
     padding: `${theme(`spacing[1]`)} ${theme(`spacing[2]`)}`,
@@ -12,6 +18,8 @@ export default function badges(
     display: 'flex',
     alignItems: 'center',
     gap: theme(`spacing[2]`),
+    ...userGlobalStyles,
+    ...userBadgesBaseStyles,
   }
 
   colors.forEach((color) => {

@@ -1,9 +1,15 @@
+import getStyles from './userStyles'
+
 export default function inputs(
-  inputs: PluginOptions['inputs'],
+  options: PluginOptions,
   theme: Helpers['theme'],
   colors: string[]
 ) {
   const components: { [x: string]: {} } = {}
+  const { inputs, globalStyles } = options
+
+  const userGlobalStyles = getStyles(theme, globalStyles)
+  const userInputsBaseStyles = getStyles(theme, inputs?.baseStyles)
 
   // BASE INPUT STYLES
   const inputBaseStyles = {
@@ -21,6 +27,8 @@ export default function inputs(
     transitionProperty: theme(`transitionProperty[all]`),
     transitionDuration: theme(`transitionDuration[200]`),
     transitionTimingFunction: theme(`transitionTimingFunction['ease-in-out']`),
+    ...userGlobalStyles,
+    ...userInputsBaseStyles,
   }
 
   const inputOutlineStyles = {

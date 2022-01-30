@@ -54,7 +54,7 @@ module.exports = {
       },
     }),
   ],
-  // require('../plugin/dist/index.js')({
+  // require('../dist/index.js')({
   //   buttons: {
   //     animate: true,
   //   },

@@ -1,6 +1,6 @@
 # @ramosdiego/ui
 
-Easily generate fully styled buttons, input elements and badges with any default TailwindCSS color or custom color.
+Easily generate fully styled buttons, input elements and badges with any [default TailwindCSS color](https://tailwindcss.com/docs/customizing-colors) or custom color.
 
 The styles include hover, focus and disabled states, as well as, dark and light modes.
 
@@ -69,7 +69,7 @@ Here are some examples using these classes in code:
 
 ## Adding custom colors
 
-`@ramosdiego/ui` takes the colors from your TailwindCSS configuration, as such. there are two possible scenarios.
+`@ramosdiego/ui` takes the colors from your TailwindCSS configuration, as such, there are two possible scenarios.
 
 **1. Your config file extends tailwindcss colors**
 
@@ -322,6 +322,27 @@ module.exports = {
 }
 ```
 
+You can choose to between three button presets.
+
+```js
+// tailwind.config.js
+module.exports = {
+  content: [],
+  ...
+  plugins: [require('@ramosdiego/ui')({
+    buttons: {
+        animate: true,
+        preset: 'playful',
+        // OR
+        preset: 'elegant',
+        // OR DEFAULT
+    }
+)],
+}
+```
+
+To choose the default preset, DO NOT set a preset.
+
 # Types
 
 Here are all the options available to `@ramosdiego/ui`.
@@ -335,17 +356,20 @@ type UserStyles = ({ theme }: { theme: Helpers['theme'] }) =>
     }
   | { [x: string]: any }
 
-interface PluginOptions {
-  globalStyles?: UserStyles
-  buttons?: {
-    animate?: boolean
-    baseStyles?: UserStyles
-  }
-  inputs?: {
-    baseStyles?: UserStyles
-  }
-  badges?: {
-    baseStyles?: UserStyles
-  }
-}
+type PluginOptions =
+  | {
+      globalStyles?: UserStyles
+      buttons?: {
+        animate?: boolean
+        preset?: 'playful' | 'elegant'
+        baseStyles?: UserStyles
+      }
+      inputs?: {
+        baseStyles?: UserStyles
+      }
+      badges?: {
+        baseStyles?: UserStyles
+      }
+    }
+  | undefined
 ```

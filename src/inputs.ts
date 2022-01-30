@@ -1,7 +1,7 @@
 import getStyles from './userStyles'
 
 export default function inputs(
-  options: PluginOptions,
+  options: NonNullable<PluginOptions>,
   theme: Helpers['theme'],
   colors: string[]
 ) {

@@ -39,6 +39,7 @@ module.exports = {
 
       buttons: {
         animate: true,
+        // preset: 'playful',
         // Add custom button base styles using theme
         // baseStyles: ({ theme }) => ({
         //   fontWeight: theme('fontWeight[light]'),
@@ -53,10 +54,11 @@ module.exports = {
         // },
       },
     }),
+
+    // require('../dist/index.js')({
+    //   buttons: {
+    //     animate: true,
+    //   },
+    // }),
   ],
-  // require('../dist/index.js')({
-  //   buttons: {
-  //     animate: true,
-  //   },
-  // }),
 }

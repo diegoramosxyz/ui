@@ -19,19 +19,22 @@ type UserStyles = ({ theme }: { theme: Helpers['theme'] }) =>
     }
   | { [x: string]: any }
 
-interface PluginOptions {
-  globalStyles?: UserStyles
-  buttons?: {
-    animate?: boolean
-    baseStyles?: UserStyles
-  }
-  inputs?: {
-    baseStyles?: UserStyles
-  }
-  badges?: {
-    baseStyles?: UserStyles
-  }
-}
+type PluginOptions =
+  | {
+      globalStyles?: UserStyles
+      buttons?: {
+        animate?: boolean
+        preset?: 'playful' | 'elegant'
+        baseStyles?: UserStyles
+      }
+      inputs?: {
+        baseStyles?: UserStyles
+      }
+      badges?: {
+        baseStyles?: UserStyles
+      }
+    }
+  | undefined
 
 declare module 'tailwindcss/plugin' {
   const withOptions: (

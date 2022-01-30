@@ -1,7 +1,7 @@
 import getStyles from './userStyles'
 
 export default function buttons(
-  options: PluginOptions,
+  options: NonNullable<PluginOptions>,
   theme: Helpers['theme'],
   addBase: Helpers['addBase'],
   colors: string[]
@@ -12,15 +12,36 @@ export default function buttons(
   const userGlobalStyles = getStyles(theme, globalStyles)
   const userButtonBaseStyles = getStyles(theme, buttons?.baseStyles)
 
-  // BASE BUTTON STYLES
-  const buttonBaseStyles: { [x: string]: any } = {
-    width: '100%',
-    padding: `${theme(`spacing[2]`)} ${theme(`spacing[4]`)}`,
+  const presets = {
+    elegant: {
+      borderRadius: theme(`borderRadius[none]`),
+      fontWeight: theme(`fontWeight[light]`),
+      textTransform: 'uppercase',
+      borderWidth: '1px',
+    },
+    playful: {
+      borderRadius: theme(`borderRadius[full]`),
+      fontWeight: theme(`fontWeight[semibold]`),
+      textTransform: 'normal-case',
+    },
+  }
+
+  let preset = {
     borderRadius: theme(`borderRadius[DEFAULT]`),
     fontWeight: theme(`fontWeight[medium]`),
     textTransform: 'uppercase',
+  }
+
+  if (buttons?.preset && presets[buttons?.preset]) {
+    preset = presets[buttons?.preset]
+  }
+
+  // BASE BUTTON STYLES
+  const buttonBaseStyles: { [x: string]: any } = {
+    padding: `${theme(`spacing[2]`)} ${theme(`spacing[4]`)}`,
     userSelect: 'none',
     outline: '2px solid transparent',
+    width: '100%',
     outlineOffset: '2px',
     '&:disabled': {
       opacity: '80%',
@@ -34,6 +55,7 @@ export default function buttons(
     alignItems: 'center',
     justifyContent: 'center',
     gap: theme(`spacing[2]`),
+    ...preset,
     ...userGlobalStyles,
     ...userButtonBaseStyles,
   }
@@ -60,6 +82,7 @@ export default function buttons(
     components[`.btn-${color}-fill`] = {
       ...buttonBaseStyles,
       backgroundColor: theme(`colors.${color}[100]`),
+      borderWidth: '0px',
       color: theme(`colors.${color}[900]`),
       '&:not(:disabled):hover': {
         backgroundColor: theme(`colors.${color}[50]`),
@@ -77,6 +100,7 @@ export default function buttons(
     components[`.btn-${color}-fill-dark`] = {
       ...buttonBaseStyles,
       backgroundColor: theme(`colors.${color}[900]`),
+      borderWidth: '0px',
       color: theme(`colors.${color}[50]`),
       '&:not(:disabled):hover': {
         backgroundColor: theme(`colors.${color}[800]`),
@@ -93,7 +117,7 @@ export default function buttons(
 
     components[`.btn-${color}-outline`] = {
       ...buttonBaseStyles,
-      borderWidth: theme(`borderWidth[2]`),
+      borderWidth: buttonBaseStyles['borderWidth'] || theme(`borderWidth[2]`),
       borderColor: theme(`colors.${color}[200]`),
       color: theme(`colors.${color}[900]`),
       '&:not(:disabled):hover': {
@@ -111,7 +135,7 @@ export default function buttons(
 
     components[`.btn-${color}-outline-dark`] = {
       ...buttonBaseStyles,
-      borderWidth: theme(`borderWidth[2]`),
+      borderWidth: buttonBaseStyles['borderWidth'] || theme(`borderWidth[2]`),
       borderColor: theme(`colors.${color}[900]`),
       color: theme(`colors.${color}[50]`),
       '&:not(:disabled):hover': {
@@ -129,6 +153,7 @@ export default function buttons(
 
     components[`.btn-${color}-ghost`] = {
       ...buttonBaseStyles,
+      borderWidth: '0px',
       color: theme(`colors.${color}[900]`),
       '&:not(:disabled):hover': {
         backgroundColor: theme(`colors.${color}[50]`),
@@ -144,6 +169,7 @@ export default function buttons(
 
     components[`.btn-${color}-ghost-dark`] = {
       ...buttonBaseStyles,
+      borderWidth: '0px',
       color: theme(`colors.${color}[50]`),
       '&:not(:disabled):hover': {
         backgroundColor: theme(`colors.${color}[900]`),

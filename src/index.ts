@@ -8,6 +8,7 @@ module.exports = plugin.withOptions(
   (options) =>
     ({ addBase, addComponents, theme, config }) => {
       const colors = getColors(config)
+      if (typeof options !== 'object') options = {}
       addComponents({
         ...buttons(options, theme, addBase, colors),
         ...inputs(options, theme, colors),

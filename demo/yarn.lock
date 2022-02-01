@@ -155,10 +155,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@ramosdiego/ui@^0.0.8":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@ramosdiego/ui/-/ui-0.0.8.tgz#a964e7338564e017dc65a9425e917b1d194580f2"
-  integrity sha512-o1fQeTXXiqmyYymjwYqA+ibIlaKPPdKTiH+VsSnkiknCW99lzECPDpjmXuAl0Jf0WXRgxP548waR5iFEtfV/BQ==
+"@ramosdiego/ui@^0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@ramosdiego/ui/-/ui-0.0.9.tgz#1c3bc18b78efdf4e662733677d43fbc7edc437cc"
+  integrity sha512-3/yDeGUG+ruYgn43azflgPInfJs0aDn7fngo7+WbQ+pjo8aGDMiQVTtxJIYyoa/WGI4VMAl8l9ub7pmYwdg3Iw==
 
 "@rushstack/eslint-patch@^1.0.8":
   version "1.1.0"

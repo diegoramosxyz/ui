@@ -1,6 +1,6 @@
 {
   "name": "@ramosdiego/ui",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "A TailwindCSS plugin which serves a as UI library.",
   "main": "dist/index.js",
   "scripts": {

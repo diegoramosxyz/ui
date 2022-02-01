@@ -39,9 +39,10 @@ export default function buttons(
   // BASE BUTTON STYLES
   const buttonBaseStyles: { [x: string]: any } = {
     padding: `${theme(`spacing[2]`)} ${theme(`spacing[4]`)}`,
+    borderWidth: theme(`borderWidth[2]`),
+    borderColor: theme('borderColor[transparent]'),
     userSelect: 'none',
     outline: '2px solid transparent',
-    width: '100%',
     outlineOffset: '2px',
     '&:disabled': {
       opacity: '80%',
@@ -82,12 +83,12 @@ export default function buttons(
     components[`.btn-${color}-fill`] = {
       ...buttonBaseStyles,
       backgroundColor: theme(`colors.${color}[100]`),
-      borderWidth: '0px',
       color: theme(`colors.${color}[900]`),
       '&:not(:disabled):hover': {
         backgroundColor: theme(`colors.${color}[50]`),
       },
       '&:focus': {
+        backgroundColor: theme(`colors.${color}[50]`),
         boxShadow: `0 0 0 2px ${theme(`colors.${color}[300]`)}`,
       },
       '&:disabled': {
@@ -100,9 +101,9 @@ export default function buttons(
     components[`.btn-${color}-fill-dark`] = {
       ...buttonBaseStyles,
       backgroundColor: theme(`colors.${color}[900]`),
-      borderWidth: '0px',
       color: theme(`colors.${color}[50]`),
       '&:not(:disabled):hover': {
+        color: theme(`colors.white`),
         backgroundColor: theme(`colors.${color}[800]`),
       },
       '&:focus': {
@@ -117,13 +118,13 @@ export default function buttons(
 
     components[`.btn-${color}-outline`] = {
       ...buttonBaseStyles,
-      borderWidth: buttonBaseStyles['borderWidth'] || theme(`borderWidth[2]`),
       borderColor: theme(`colors.${color}[200]`),
       color: theme(`colors.${color}[900]`),
       '&:not(:disabled):hover': {
         backgroundColor: theme(`colors.${color}[50]`),
       },
       '&:focus': {
+        backgroundColor: theme(`colors.${color}[50]`),
         boxShadow: `0 0 0 2px ${theme(`colors.${color}[300]`)}`,
       },
       '&:disabled': {
@@ -135,13 +136,15 @@ export default function buttons(
 
     components[`.btn-${color}-outline-dark`] = {
       ...buttonBaseStyles,
-      borderWidth: buttonBaseStyles['borderWidth'] || theme(`borderWidth[2]`),
-      borderColor: theme(`colors.${color}[900]`),
+      borderColor: theme(`colors.${color}[800]`),
       color: theme(`colors.${color}[50]`),
       '&:not(:disabled):hover': {
-        backgroundColor: theme(`colors.${color}[900]`),
+        color: theme(`colors.white`),
+        backgroundColor: theme(`colors.${color}[800]`),
       },
       '&:focus': {
+        color: theme(`colors.white`),
+        backgroundColor: theme(`colors.${color}[800]`),
         boxShadow: `0 0 0 2px ${theme(`colors.${color}[500]`)}`,
       },
       '&:disabled': {
@@ -153,12 +156,12 @@ export default function buttons(
 
     components[`.btn-${color}-ghost`] = {
       ...buttonBaseStyles,
-      borderWidth: '0px',
       color: theme(`colors.${color}[900]`),
       '&:not(:disabled):hover': {
         backgroundColor: theme(`colors.${color}[50]`),
       },
       '&:focus': {
+        backgroundColor: theme(`colors.${color}[50]`),
         boxShadow: `0 0 0 2px ${theme(`colors.${color}[300]`)}`,
       },
       '&:disabled': {
@@ -169,12 +172,14 @@ export default function buttons(
 
     components[`.btn-${color}-ghost-dark`] = {
       ...buttonBaseStyles,
-      borderWidth: '0px',
       color: theme(`colors.${color}[50]`),
       '&:not(:disabled):hover': {
-        backgroundColor: theme(`colors.${color}[900]`),
+        color: theme(`colors.white`),
+        backgroundColor: theme(`colors.${color}[800]`),
       },
       '&:focus': {
+        color: theme(`colors.white`),
+        backgroundColor: theme(`colors.${color}[800]`),
         boxShadow: `0 0 0 2px ${theme(`colors.${color}[500]`)}`,
       },
       '&:disabled': {

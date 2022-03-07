@@ -81,7 +81,6 @@ export default function buttons(
 
   colors.forEach((color) => {
     components[`.btn-${color}-fill`] = {
-      ...buttonBaseStyles,
       backgroundColor: theme(`colors.${color}[100]`),
       color: theme(`colors.${color}[900]`),
       '&:not(:disabled):hover': {
@@ -96,10 +95,10 @@ export default function buttons(
         color: theme(`colors.neutral[600]`),
         backgroundColor: theme(`colors.neutral[100]`),
       },
+      ...buttonBaseStyles,
     }
 
     components[`.btn-${color}-fill-dark`] = {
-      ...buttonBaseStyles,
       backgroundColor: theme(`colors.${color}[900]`),
       color: theme(`colors.${color}[50]`),
       '&:not(:disabled):hover': {
@@ -114,10 +113,10 @@ export default function buttons(
         color: theme(`colors.neutral[50]`),
         backgroundColor: theme(`colors.neutral[600]`),
       },
+      ...buttonBaseStyles,
     }
 
     components[`.btn-${color}-outline`] = {
-      ...buttonBaseStyles,
       borderColor: theme(`colors.${color}[200]`),
       color: theme(`colors.${color}[900]`),
       '&:not(:disabled):hover': {
@@ -132,10 +131,10 @@ export default function buttons(
         color: theme(`colors.neutral[600]`),
         borderColor: theme(`colors.neutral[200]`),
       },
+      ...buttonBaseStyles,
     }
 
     components[`.btn-${color}-outline-dark`] = {
-      ...buttonBaseStyles,
       borderColor: theme(`colors.${color}[800]`),
       color: theme(`colors.${color}[50]`),
       '&:not(:disabled):hover': {
@@ -152,10 +151,10 @@ export default function buttons(
         color: theme(`colors.neutral[50]`),
         borderColor: theme(`colors.neutral[600]`),
       },
+      ...buttonBaseStyles,
     }
 
     components[`.btn-${color}-ghost`] = {
-      ...buttonBaseStyles,
       color: theme(`colors.${color}[900]`),
       '&:not(:disabled):hover': {
         backgroundColor: theme(`colors.${color}[50]`),
@@ -168,10 +167,10 @@ export default function buttons(
         ...buttonBaseStyles['&:disabled'],
         color: theme(`colors.neutral[600]`),
       },
+      ...buttonBaseStyles,
     }
 
     components[`.btn-${color}-ghost-dark`] = {
-      ...buttonBaseStyles,
       color: theme(`colors.${color}[50]`),
       '&:not(:disabled):hover': {
         color: theme(`colors.white`),
@@ -187,6 +186,7 @@ export default function buttons(
         color: theme(`colors.neutral[50]`),
         backgroundColor: theme(`colors.nuetral[900]`),
       },
+      ...buttonBaseStyles,
     }
   })
 

@@ -14,38 +14,37 @@ export default function buttons(
 
   const presets = {
     elegant: {
-      borderRadius: theme(`borderRadius[none]`),
-      fontWeight: theme(`fontWeight[light]`),
+      borderRadius: '0px',
+      fontWeight: 300,
       textTransform: 'uppercase',
-      borderWidth: '1px',
     },
     playful: {
-      borderRadius: theme(`borderRadius[full]`),
-      fontWeight: theme(`fontWeight[semibold]`),
+      borderRadius: '9999px',
+      fontWeight: 600,
       textTransform: 'normal-case',
     },
   }
 
   let preset = {
-    borderRadius: theme(`borderRadius[DEFAULT]`),
-    fontWeight: theme(`fontWeight[medium]`),
-    textTransform: 'uppercase',
+    borderRadius: '4px',
+    fontWeight: 500,
+    textTransform: 'none',
   }
 
   if (buttons?.preset && presets[buttons?.preset]) {
     preset = presets[buttons?.preset]
   }
 
+  let spreadRadius = buttons?.spreadRadius || '2px'
+
   // BASE BUTTON STYLES
   const buttonBaseStyles: { [x: string]: any } = {
-    padding: `${theme(`spacing[2]`)} ${theme(`spacing[4]`)}`,
-    borderWidth: theme(`borderWidth[2]`),
-    borderColor: theme('borderColor[transparent]'),
+    padding: '12px 24px',
     userSelect: 'none',
     outline: '2px solid transparent',
     outlineOffset: '2px',
     '&:disabled': {
-      opacity: '80%',
+      opacity: '75%',
       cursor: 'not-allowed',
     },
     transitionProperty: theme(`transitionProperty[all]`),
@@ -55,10 +54,9 @@ export default function buttons(
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: theme(`spacing[2]`),
+    gap: '8px',
     ...preset,
     ...userGlobalStyles,
-    ...userButtonBaseStyles,
   }
 
   if (buttons?.animate) {
@@ -81,6 +79,7 @@ export default function buttons(
 
   colors.forEach((color) => {
     components[`.btn-${color}-fill`] = {
+      ...buttonBaseStyles,
       backgroundColor: theme(`colors.${color}[100]`),
       color: theme(`colors.${color}[900]`),
       '&:not(:disabled):hover': {
@@ -88,17 +87,18 @@ export default function buttons(
       },
       '&:focus': {
         backgroundColor: theme(`colors.${color}[50]`),
-        boxShadow: `0 0 0 2px ${theme(`colors.${color}[300]`)}`,
+        boxShadow: `0 0 0 ${spreadRadius} ${theme(`colors.${color}[300]`)}`,
       },
       '&:disabled': {
         ...buttonBaseStyles['&:disabled'],
         color: theme(`colors.neutral[600]`),
         backgroundColor: theme(`colors.neutral[100]`),
       },
-      ...buttonBaseStyles,
+      ...userButtonBaseStyles,
     }
 
     components[`.btn-${color}-fill-dark`] = {
+      ...buttonBaseStyles,
       backgroundColor: theme(`colors.${color}[900]`),
       color: theme(`colors.${color}[50]`),
       '&:not(:disabled):hover': {
@@ -106,37 +106,42 @@ export default function buttons(
         backgroundColor: theme(`colors.${color}[800]`),
       },
       '&:focus': {
-        boxShadow: `0 0 0 2px ${theme(`colors.${color}[500]`)}`,
+        color: theme(`colors.white`),
+        backgroundColor: theme(`colors.${color}[800]`),
+        boxShadow: `0 0 0 ${spreadRadius} ${theme(`colors.${color}[500]`)}`,
       },
       '&:disabled': {
         ...buttonBaseStyles['&:disabled'],
         color: theme(`colors.neutral[50]`),
         backgroundColor: theme(`colors.neutral[600]`),
       },
-      ...buttonBaseStyles,
+      ...userButtonBaseStyles,
     }
 
     components[`.btn-${color}-outline`] = {
-      borderColor: theme(`colors.${color}[200]`),
-      color: theme(`colors.${color}[900]`),
+      ...buttonBaseStyles,
+      boxShadow: `0 0 0 ${spreadRadius} ${theme(`colors.${color}[200]`)}`,
+      color: 'inherit',
       '&:not(:disabled):hover': {
+        color: theme(`colors.${color}[900]`),
         backgroundColor: theme(`colors.${color}[50]`),
       },
       '&:focus': {
+        color: theme(`colors.${color}[900]`),
         backgroundColor: theme(`colors.${color}[50]`),
-        boxShadow: `0 0 0 2px ${theme(`colors.${color}[300]`)}`,
+        boxShadow: `0 0 0 ${spreadRadius} ${theme(`colors.${color}[300]`)}`,
       },
       '&:disabled': {
         ...buttonBaseStyles['&:disabled'],
-        color: theme(`colors.neutral[600]`),
-        borderColor: theme(`colors.neutral[200]`),
+        boxShadow: `0 0 0 ${spreadRadius} ${theme(`colors.neutral[200]`)}`,
       },
-      ...buttonBaseStyles,
+      ...userButtonBaseStyles,
     }
 
     components[`.btn-${color}-outline-dark`] = {
-      borderColor: theme(`colors.${color}[800]`),
-      color: theme(`colors.${color}[50]`),
+      ...buttonBaseStyles,
+      boxShadow: `0 0 0 ${spreadRadius} ${theme(`colors.${color}[800]`)}`,
+      color: 'inherit',
       '&:not(:disabled):hover': {
         color: theme(`colors.white`),
         backgroundColor: theme(`colors.${color}[800]`),
@@ -144,34 +149,36 @@ export default function buttons(
       '&:focus': {
         color: theme(`colors.white`),
         backgroundColor: theme(`colors.${color}[800]`),
-        boxShadow: `0 0 0 2px ${theme(`colors.${color}[500]`)}`,
+        boxShadow: `0 0 0 ${spreadRadius} ${theme(`colors.${color}[500]`)}`,
       },
       '&:disabled': {
         ...buttonBaseStyles['&:disabled'],
-        color: theme(`colors.neutral[50]`),
-        borderColor: theme(`colors.neutral[600]`),
+        boxShadow: `0 0 0 ${spreadRadius} ${theme(`colors.neutral[600]`)}`,
       },
-      ...buttonBaseStyles,
+      ...userButtonBaseStyles,
     }
 
     components[`.btn-${color}-ghost`] = {
-      color: theme(`colors.${color}[900]`),
+      ...buttonBaseStyles,
+      color: 'inherit',
       '&:not(:disabled):hover': {
+        color: theme(`colors.${color}[900]`),
         backgroundColor: theme(`colors.${color}[50]`),
       },
       '&:focus': {
+        color: theme(`colors.${color}[900]`),
         backgroundColor: theme(`colors.${color}[50]`),
-        boxShadow: `0 0 0 2px ${theme(`colors.${color}[300]`)}`,
+        boxShadow: `0 0 0 ${spreadRadius} ${theme(`colors.${color}[300]`)}`,
       },
       '&:disabled': {
         ...buttonBaseStyles['&:disabled'],
-        color: theme(`colors.neutral[600]`),
       },
-      ...buttonBaseStyles,
+      ...userButtonBaseStyles,
     }
 
     components[`.btn-${color}-ghost-dark`] = {
-      color: theme(`colors.${color}[50]`),
+      ...buttonBaseStyles,
+      color: 'inherit',
       '&:not(:disabled):hover': {
         color: theme(`colors.white`),
         backgroundColor: theme(`colors.${color}[800]`),
@@ -179,14 +186,13 @@ export default function buttons(
       '&:focus': {
         color: theme(`colors.white`),
         backgroundColor: theme(`colors.${color}[800]`),
-        boxShadow: `0 0 0 2px ${theme(`colors.${color}[500]`)}`,
+        boxShadow: `0 0 0 ${spreadRadius} ${theme(`colors.${color}[500]`)}`,
       },
       '&:disabled': {
         ...buttonBaseStyles['&:disabled'],
-        color: theme(`colors.neutral[50]`),
         backgroundColor: theme(`colors.nuetral[900]`),
       },
-      ...buttonBaseStyles,
+      ...userButtonBaseStyles,
     }
   })
 

@@ -38,7 +38,8 @@ module.exports = {
       // },
 
       buttons: {
-        animate: true,
+        animate: false,
+        // // spreadRadius: '6px',
         // preset: 'playful',
         // Add custom button base styles using theme
         // baseStyles: ({ theme }) => ({
@@ -58,6 +59,24 @@ module.exports = {
     // require('../dist/index.js')({
     //   buttons: {
     //     animate: true,
+    //     // spreadRadius: '6px',
+    //     preset: 'playful',
+    //     // Add custom button base styles
+    //     baseStyles: {
+    //       // textTransform: 'capitalize',
+    //       // padding: '20px 60px',
+    //       // fontWeight: 800,
+    //       // borderRadius: '10px',
+    //     },
+    //   },
+    //   inputs: {
+    //     // Add custom button base styles
+    //     // baseStyles: {
+    //     //   textTransform: 'capitalize',
+    //     //   padding: '15px 30px',
+    //     //   fontWeight: 500,
+    //     //   borderRadius: '0px',
+    //     // },
     //   },
     // }),
   ],

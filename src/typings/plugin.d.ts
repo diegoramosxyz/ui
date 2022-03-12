@@ -24,6 +24,7 @@ type PluginOptions =
       globalStyles?: UserStyles
       buttons?: {
         animate?: boolean
+        spreadRadius?: string
         preset?: 'playful' | 'elegant'
         baseStyles?: UserStyles
       }

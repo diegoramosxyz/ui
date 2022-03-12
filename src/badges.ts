@@ -15,7 +15,7 @@ export default function badges(
     padding: `${theme(`spacing[1]`)} ${theme(`spacing[2]`)}`,
     borderRadius: theme(`borderRadius[md]`),
     // For badges with icons
-    display: 'flex',
+    display: 'inline-flex',
     alignItems: 'center',
     gap: theme(`spacing[2]`),
     ...userGlobalStyles,

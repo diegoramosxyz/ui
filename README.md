@@ -4,6 +4,8 @@ Easily generate fully styled buttons, input elements and badges with any [defaul
 
 The styles include hover, focus and disabled states, as well as, dark and light modes.
 
+[Demo](https://ui-sooty.vercel.app/)
+
 ## Install
 
 With NPM
@@ -143,7 +145,7 @@ module.exports = {
 }
 ```
 
-In this scenario you'll only have access to your custom colors, such that:
+In this scenario you'll only have access to your custom colors, such that only:
 
 ```html
 <button class="btn-myTotallyCustomColor-fill">
@@ -361,6 +363,7 @@ type PluginOptions =
       globalStyles?: UserStyles
       buttons?: {
         animate?: boolean
+        spreadRadius?: string
         preset?: 'playful' | 'elegant'
         baseStyles?: UserStyles
       }

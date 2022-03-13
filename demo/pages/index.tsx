@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import Link from 'next/link'
 import { Dispatch, FC, SetStateAction, useState } from 'react'
 import { HiArrowNarrowRight } from 'react-icons/hi'
 
@@ -53,6 +54,9 @@ const Home: NextPage = () => {
             </a>
             .
           </p>
+          <Link href="/demo.mp4">
+            <a className="underline mb-4 inline-block">Watch demo</a>
+          </Link>
           <div className="mb-4">
             <label htmlFor="invertBg" className="text-lg font-medium">
               Invert Theme

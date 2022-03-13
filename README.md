@@ -4,7 +4,9 @@ Easily generate fully styled buttons, input elements and badges with any [defaul
 
 The styles include hover, focus and disabled states, as well as, dark and light modes.
 
-[Demo](https://ui-sooty.vercel.app/)
+[Demo Website](https://ui-ramosdiego.vercel.app/)
+
+[Demo Video](https://ui-ramosdiego.vercel.app/demo.mp4)
 
 ## Install
 

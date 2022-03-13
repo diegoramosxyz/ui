@@ -4,6 +4,24 @@ module.exports = {
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
   ],
+  safelist: [
+    {
+      pattern:
+        /btn-(slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-(fill|outline|ghost)/,
+    },
+    {
+      pattern:
+        /btn-(slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-(fill|outline|ghost)-dark/,
+    },
+    {
+      pattern:
+        /input-(slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-(outline|underline)/,
+    },
+    {
+      pattern:
+        /input-(slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-(outline|underline)-dark/,
+    },
+  ],
   theme: {
     extend: {
       colors: {

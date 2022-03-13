@@ -2,8 +2,36 @@ import type { NextPage } from 'next'
 import { Dispatch, FC, SetStateAction, useState } from 'react'
 import { HiArrowNarrowRight } from 'react-icons/hi'
 
+const colors = [
+  'slate',
+  'gray',
+  'zinc',
+  'neutral',
+  'stone',
+  'red',
+  'orange',
+  'amber',
+  'yellow',
+  'lime',
+  'green',
+  'emerald',
+  'teal',
+  'cyan',
+  'sky',
+  'blue',
+  'indigo',
+  'violet',
+  'purple',
+  'fuchsia',
+  'pink',
+  'rose',
+] as const
+
+type Colors = typeof colors[number]
+
 const Home: NextPage = () => {
   const [invertBg, setInvertBg] = useState<boolean>(false)
+  const [color, setColor] = useState<Colors>('blue')
 
   return (
     <>
@@ -37,23 +65,24 @@ const Home: NextPage = () => {
               onChange={() => setInvertBg(!invertBg)}
             />
           </div>
+          <ColorSelector setColor={setColor} color={color} />
         </div>
         <code className="px-4 lg:px-6 font-medium">{`.btn-{color}-{fill|outline|ghost}{-dark}`}</code>
         <Grid>
-          <Button pluginClass="btn-blue-fill-dark" />
-          <Button pluginClass="btn-blue-outline-dark" />
-          <Button pluginClass="btn-blue-ghost-dark" />
-          <Button pluginClass="btn-blue-fill" />
-          <Button pluginClass="btn-blue-outline" />
-          <Button pluginClass="btn-blue-ghost" />
+          <Button pluginClass={`btn-${color}-fill-dark`} />
+          <Button pluginClass={`btn-${color}-outline-dark`} />
+          <Button pluginClass={`btn-${color}-ghost-dark`} />
+          <Button pluginClass={`btn-${color}-fill`} />
+          <Button pluginClass={`btn-${color}-outline`} />
+          <Button pluginClass={`btn-${color}-ghost`} />
         </Grid>
         <hr className="mb-8 border-transparent" />
         <code className="px-4 lg:px-6 font-medium">{`.input-{color}-{outline|underline}{-dark}`}</code>
         <Grid>
-          <Input pluginClass="input-blue-outline-dark" />
-          <Input pluginClass="input-blue-underline-dark" />
-          <Input pluginClass="input-blue-outline" />
-          <Input pluginClass="input-blue-underline" />
+          <Input pluginClass={`input-${color}-outline-dark`} />
+          <Input pluginClass={`input-${color}-underline-dark`} />
+          <Input pluginClass={`input-${color}-outline`} />
+          <Input pluginClass={`input-${color}-underline`} />
         </Grid>
       </div>
     </>
@@ -62,6 +91,33 @@ const Home: NextPage = () => {
 
 export default Home
 
+type ColorSelectorProps = {
+  color: string
+  setColor: Dispatch<SetStateAction<Colors>>
+}
+
+const ColorSelector: FC<ColorSelectorProps> = ({ color, setColor }) => {
+  return (
+    <div>
+      <label htmlFor="color-selector" className="text-lg font-medium">
+        Select a color
+      </label>
+      <select
+        id="color-selector"
+        defaultValue="blue"
+        className={`input-${color}-outline mb-4 ml-3`}
+        onChange={(e) => setColor(e.target.value as Colors)}
+      >
+        {colors.map((color) => (
+          <option key={color} value={color}>
+            {color}
+          </option>
+        ))}
+      </select>
+    </div>
+  )
+}
+
 const Grid: FC = ({ children }) => {
   return (
     <div className="gap-6 grid md:grid-cols-2 lg:grid-cols-3 justify-center p-4 lg:p-6">
@@ -69,6 +125,7 @@ const Grid: FC = ({ children }) => {
     </div>
   )
 }
+
 const Card: FC = ({ children }) => {
   return (
     <div className="flex flex-col ring-1 ring-neutral-700 p-4 rounded-md">

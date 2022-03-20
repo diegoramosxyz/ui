@@ -13,20 +13,20 @@ export default function inputs(
 
   // BASE INPUT STYLES
   const inputBaseStyles = {
-    padding: `${theme(`spacing[1]`)} ${theme(`spacing[2]`)}`,
     backgroundColor: 'transparent',
+    outline: '2px solid transparent',
+    outlineOffset: '2px',
+    padding: '4px 8px',
+    transitionDuration: theme(`transitionDuration[200]`),
+    transitionProperty: theme(`transitionProperty[all]`),
+    transitionTimingFunction: theme(`transitionTimingFunction['ease-in-out']`),
     '&:autofill': {
       backgroundColor: 'transparent',
     },
-    outline: '2px solid transparent',
-    outlineOffset: '2px',
     '&:disabled': {
       opacity: '80%',
       cursor: 'not-allowed',
     },
-    transitionProperty: theme(`transitionProperty[all]`),
-    transitionDuration: theme(`transitionDuration[200]`),
-    transitionTimingFunction: theme(`transitionTimingFunction['ease-in-out']`),
     ...userGlobalStyles,
     ...userInputsBaseStyles,
   }

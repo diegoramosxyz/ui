@@ -11,8 +11,6 @@ const colorKeys = [
   '900',
 ]
 
-// const oldColors = ['lightBlue', 'warmGray', 'trueGray', 'coolGray', 'blueGray']
-
 function isColor(color: any) {
   if (typeof color !== 'object') return false
 
@@ -34,9 +32,6 @@ export default function getColors(config: Helpers['config']) {
       colors[key] = TailwindColors[key]
     }
   })
-
-  // Remove old/legacy colors
-  // oldColors.forEach((oldColor) => delete colors[oldColor])
 
   return Object.keys(colors)
 }

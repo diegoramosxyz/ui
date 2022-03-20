@@ -17,14 +17,14 @@ export default function badges(
   }
 
   const badgeBaseStyles = {
-    padding: '2px 10px',
-    borderWidth: '2px',
+    alignItems: 'center',
     borderColor: 'transparent',
+    borderWidth: '2px',
+    display: 'inline-flex',
+    gap: '8px',
     outline: '2px solid transparent',
     outlineOffset: '2px',
-    display: 'inline-flex',
-    alignItems: 'center',
-    gap: '8px',
+    padding: '2px 10px',
     ...preset,
     ...userGlobalStyles,
     ...userBadgesBaseStyles,

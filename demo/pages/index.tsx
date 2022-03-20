@@ -95,6 +95,16 @@ const Home: NextPage = () => {
           <Checkbox pluginClass={`checkbox-${color}-dark`} />
         </Grid>
         <hr className="mb-8 border-transparent" />
+        <code className="px-4 lg:px-6 font-medium">{`.toggle-switch-{color}`}</code>
+        <Grid>
+          <ToggleSwitch pluginClass={`toggle-switch-${color}`} />
+        </Grid>
+        <hr className="mb-8 border-transparent" />
+        <code className="px-4 lg:px-6 font-medium">{`.radio-{color}`}</code>
+        <Grid>
+          <Radio pluginClass={`radio-${color}`} />
+        </Grid>
+        <hr className="mb-8 border-transparent" />
         <code className="px-4 lg:px-6 font-medium">{`.input-{color}-{outline|underline}{-dark}`}</code>
         <Grid>
           <Input pluginClass={`input-${color}-outline-dark`} />
@@ -198,6 +208,60 @@ const Checkbox: FC<TestElementProps> = ({ pluginClass }) => {
       <Disable disabled={disabled} setDisabled={setDisabled} />
       <div className="grid place-items-center flex-grow gap-3">
         <input type="checkbox" disabled={disabled} className={pluginClass} />
+      </div>
+    </Card>
+  )
+}
+
+const ToggleSwitch: FC<TestElementProps> = ({ pluginClass }) => {
+  const [disabled, setDisabled] = useState<boolean>(false)
+  const [state, setState] = useState<boolean>(false)
+
+  return (
+    <Card>
+      <code className="mb-2 inline-block">.{pluginClass}</code>
+      <Disable disabled={disabled} setDisabled={setDisabled} />
+      <div className="grid place-items-center flex-grow gap-3">
+        <button
+          disabled={disabled}
+          data-state={state ? 'checked' : 'unchecked'}
+          className={pluginClass}
+          onClick={() => setState(!state)}
+        ></button>
+      </div>
+    </Card>
+  )
+}
+
+const Radio: FC<TestElementProps> = ({ pluginClass }) => {
+  const [disabled, setDisabled] = useState<boolean>(false)
+
+  return (
+    <Card>
+      <code className="mb-2 inline-block">.{pluginClass}</code>
+      <Disable disabled={disabled} setDisabled={setDisabled} />
+      <div className="grid place-items-center flex-grow gap-3">
+        <input
+          type="radio"
+          disabled={disabled}
+          name="test"
+          value="a"
+          className={pluginClass}
+        />
+        <input
+          type="radio"
+          disabled={disabled}
+          name="test"
+          value="b"
+          className={pluginClass}
+        />
+        <input
+          type="radio"
+          disabled={disabled}
+          name="test"
+          value="c"
+          className={pluginClass}
+        />
       </div>
     </Card>
   )

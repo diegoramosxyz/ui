@@ -39,22 +39,21 @@ export default function buttons(
 
   // BASE BUTTON STYLES
   const buttonBaseStyles: { [x: string]: any } = {
-    padding: '12px 24px',
-    userSelect: 'none',
+    alignItems: 'center',
+    display: 'flex',
+    gap: '8px',
+    justifyContent: 'center',
     outline: '2px solid transparent',
     outlineOffset: '2px',
+    padding: '12px 24px',
+    transitionDuration: theme(`transitionDuration[200]`),
+    transitionProperty: theme(`transitionProperty[all]`),
+    transitionTimingFunction: theme(`transitionTimingFunction['ease-in-out']`),
+    userSelect: 'none',
     '&:disabled': {
       opacity: '75%',
       cursor: 'not-allowed',
     },
-    transitionProperty: theme(`transitionProperty[all]`),
-    transitionDuration: theme(`transitionDuration[200]`),
-    transitionTimingFunction: theme(`transitionTimingFunction['ease-in-out']`),
-    // For button with icons
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: '8px',
     ...preset,
     ...userGlobalStyles,
   }

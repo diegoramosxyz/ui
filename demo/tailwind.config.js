@@ -15,6 +15,14 @@ module.exports = {
     },
     {
       pattern:
+        /radio-(slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)/,
+    },
+    {
+      pattern:
+        /toggle-switch-(slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)/,
+    },
+    {
+      pattern:
         /checkbox-(slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)/,
     },
     {
@@ -57,61 +65,7 @@ module.exports = {
     },
   },
   plugins: [
-    require('@ramosdiego/ui')({
-      // Add custom global base styles using theme
-      // globalStyles: ({ theme }) => ({
-      //   fontWeight: theme('fontWeight[bold]'),
-      //   fontSize: theme('fontSize[xl]'),
-      // }),
-
-      // Add custom global base styles
-      // globalStyles: {
-      //   textTransform: 'normal-case',
-      //   fontWeight: 800,
-      //   borderRadius: '10px',
-      // },
-
-      buttons: {
-        animate: false,
-        // // spreadRadius: '6px',
-        // preset: 'playful',
-        // Add custom button base styles using theme
-        // baseStyles: ({ theme }) => ({
-        //   fontWeight: theme('fontWeight[light]'),
-        //   fontSize: theme('fontSize[sm]'),
-        // }),
-
-        // Add custom button base styles
-        // baseStyles: {
-        //   textTransform: 'normal-case',
-        //   fontWeight: 800,
-        //   borderRadius: '10px',
-        // },
-      },
-    }),
-
-    // require('../dist/index.js')({
-    //   buttons: {
-    //     animate: true,
-    //     // spreadRadius: '6px',
-    //     preset: 'playful',
-    //     // Add custom button base styles
-    //     baseStyles: {
-    //       // textTransform: 'capitalize',
-    //       // padding: '20px 60px',
-    //       // fontWeight: 800,
-    //       // borderRadius: '10px',
-    //     },
-    //   },
-    //   inputs: {
-    //     // Add custom button base styles
-    //     // baseStyles: {
-    //     //   textTransform: 'capitalize',
-    //     //   padding: '15px 30px',
-    //     //   fontWeight: 500,
-    //     //   borderRadius: '0px',
-    //     // },
-    //   },
-    // }),
+    // require('../dist/index.js')(),
+    require('@ramosdiego/ui')(),
   ],
 }

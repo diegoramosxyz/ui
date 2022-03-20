@@ -1,10 +1,11 @@
-import plugin from 'tailwindcss/plugin'
-import buttons from './buttons'
-import inputs from './inputs'
 import badges from './badges'
+import buttons from './buttons'
 import checkbox from './checkbox'
-// import toggle from './toggle'
 import getColors from './colors'
+import inputs from './inputs'
+import plugin from 'tailwindcss/plugin'
+import radio from './radio'
+import toggleSwitch from './toggleSwitch'
 
 module.exports = plugin.withOptions(
   (options) =>
@@ -12,11 +13,12 @@ module.exports = plugin.withOptions(
       const colors = getColors(config)
       if (typeof options !== 'object') options = {}
       addComponents({
-        ...buttons(options, theme, addBase, colors),
-        ...inputs(options, theme, colors),
-        // ...toggle(options, theme, colors),
-        ...checkbox(options, theme, colors),
         ...badges(options, theme, colors),
+        ...buttons(options, theme, addBase, colors),
+        ...checkbox(options, theme, colors),
+        ...inputs(options, theme, colors),
+        ...radio(options, theme, colors),
+        ...toggleSwitch(options, theme, colors),
       })
     }
 )

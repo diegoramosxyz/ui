@@ -38,6 +38,14 @@ type PluginOptions =
         spreadRadius?: string
         baseStyles?: UserStyles
       }
+      toggleSwitch?: {
+        spreadRadius?: string
+        baseStyles?: UserStyles
+      }
+      radio?: {
+        spreadRadius?: string
+        baseStyles?: UserStyles
+      }
     }
   | undefined
 

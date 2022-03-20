@@ -8,6 +8,8 @@ The styles include hover, focus and disabled states, as well as, dark and light 
 
 [Demo Video](https://ui-ramosdiego.vercel.app/demo.mp4)
 
+[TailwindPlay](https://play.tailwindcss.com/vStNXejhCb)
+
 ## Install
 
 With NPM

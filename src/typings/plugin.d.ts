@@ -34,6 +34,10 @@ type PluginOptions =
       badges?: {
         baseStyles?: UserStyles
       }
+      checkbox?: {
+        spreadRadius?: string
+        baseStyles?: UserStyles
+      }
     }
   | undefined
 

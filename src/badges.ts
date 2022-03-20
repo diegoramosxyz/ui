@@ -11,13 +11,21 @@ export default function badges(
   const userGlobalStyles = getStyles(theme, globalStyles)
   const userBadgesBaseStyles = getStyles(theme, badges?.baseStyles)
 
+  let preset = {
+    borderRadius: '4px',
+    fontWeight: 500,
+  }
+
   const badgeBaseStyles = {
-    padding: `${theme(`spacing[1]`)} ${theme(`spacing[2]`)}`,
-    borderRadius: theme(`borderRadius[md]`),
-    // For badges with icons
+    padding: '2px 10px',
+    borderWidth: '2px',
+    borderColor: 'transparent',
+    outline: '2px solid transparent',
+    outlineOffset: '2px',
     display: 'inline-flex',
     alignItems: 'center',
-    gap: theme(`spacing[2]`),
+    gap: '8px',
+    ...preset,
     ...userGlobalStyles,
     ...userBadgesBaseStyles,
   }
@@ -37,16 +45,14 @@ export default function badges(
 
     components[`.badge-${color}-outline`] = {
       ...badgeBaseStyles,
-      borderWidth: theme(`borderWidth[2]`),
       borderColor: theme(`colors.${color}[200]`),
-      color: theme(`colors.${color}[900]`),
+      color: 'inherit',
     }
 
     components[`.badge-${color}-outline-dark`] = {
       ...badgeBaseStyles,
-      borderWidth: theme(`borderWidth[2]`),
       borderColor: theme(`colors.${color}[900]`),
-      color: theme(`colors.${color}[50]`),
+      color: 'inherit',
     }
   })
 

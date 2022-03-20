@@ -81,6 +81,20 @@ const Home: NextPage = () => {
           <Button pluginClass={`btn-${color}-ghost`} />
         </Grid>
         <hr className="mb-8 border-transparent" />
+        <code className="px-4 lg:px-6 font-medium">{`.badge-{color}-{fill|outline}{-dark}`}</code>
+        <Grid>
+          <Badge pluginClass={`badge-${color}-fill-dark`} />
+          <Badge pluginClass={`badge-${color}-outline-dark`} />
+          <Badge pluginClass={`badge-${color}-fill`} />
+          <Badge pluginClass={`badge-${color}-outline`} />
+        </Grid>
+        <hr className="mb-8 border-transparent" />
+        <code className="px-4 lg:px-6 font-medium">{`.checkbox-{color}{-dark}`}</code>
+        <Grid>
+          <Checkbox pluginClass={`checkbox-${color}`} />
+          <Checkbox pluginClass={`checkbox-${color}-dark`} />
+        </Grid>
+        <hr className="mb-8 border-transparent" />
         <code className="px-4 lg:px-6 font-medium">{`.input-{color}-{outline|underline}{-dark}`}</code>
         <Grid>
           <Input pluginClass={`input-${color}-outline-dark`} />
@@ -158,16 +172,43 @@ const Disable: FC<DisableProps> = ({ setDisabled, disabled }) => {
   )
 }
 
-type ButtonProps = {
+type TestElementProps = {
   pluginClass: string
 }
 
-const Button: FC<ButtonProps> = ({ pluginClass }) => {
+const Badge: FC<TestElementProps> = ({ pluginClass }) => (
+  <Card>
+    <code className="mb-2 inline-block">.{pluginClass}</code>
+    <div className="grid place-items-center flex-grow gap-3">
+      <div className={pluginClass}>badge</div>
+      <div className={pluginClass}>
+        badge
+        <HiArrowNarrowRight className="h-5 w-5" />
+      </div>
+    </div>
+  </Card>
+)
+
+const Checkbox: FC<TestElementProps> = ({ pluginClass }) => {
   const [disabled, setDisabled] = useState<boolean>(false)
 
   return (
     <Card>
-      <code className="mb-2 inline-block">{pluginClass}</code>
+      <code className="mb-2 inline-block">.{pluginClass}</code>
+      <Disable disabled={disabled} setDisabled={setDisabled} />
+      <div className="grid place-items-center flex-grow gap-3">
+        <input type="checkbox" disabled={disabled} className={pluginClass} />
+      </div>
+    </Card>
+  )
+}
+
+const Button: FC<TestElementProps> = ({ pluginClass }) => {
+  const [disabled, setDisabled] = useState<boolean>(false)
+
+  return (
+    <Card>
+      <code className="mb-2 inline-block">.{pluginClass}</code>
       <Disable disabled={disabled} setDisabled={setDisabled} />
       <div className="grid place-items-center flex-grow gap-3">
         <button className={pluginClass} disabled={disabled}>
@@ -182,16 +223,12 @@ const Button: FC<ButtonProps> = ({ pluginClass }) => {
   )
 }
 
-type InputProps = {
-  pluginClass: string
-}
-
-const Input: FC<InputProps> = ({ pluginClass }) => {
+const Input: FC<TestElementProps> = ({ pluginClass }) => {
   const [disabled, setDisabled] = useState<boolean>(false)
 
   return (
     <Card>
-      <code className="mb-2 inline-block">{pluginClass}</code>
+      <code className="mb-2 inline-block">.{pluginClass}</code>
       <Disable disabled={disabled} setDisabled={setDisabled} />
       <div className="grid place-items-center flex-grow gap-3">
         <input

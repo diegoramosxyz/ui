@@ -48,6 +48,15 @@ input-{color}-{outline|underline}{-dark}
 
 # Badges
 badge-{color}-{fill|outline}{-dark}
+
+# Radio
+radio-{color}
+
+# Toggle Switch
+toggle-switch-{color}
+
+# Checkbox
+checkbox-{color}{-dark}
 ```
 
 Here are some examples using these classes in code:
@@ -69,6 +78,21 @@ Here are some examples using these classes in code:
 <span class="badge-green-outline-dark">Cash Money</span>
 
 <div class="badge-pink-fill">Certified certificate of certification</div>
+
+<!-- Checkbox -->
+<input type="checkbox" class="checkbox-emerald" />
+
+<input type="checkbox" class="checkbox-orange-dark" />
+
+<!-- Toggle Switch -->
+<button data-state="unchecked" class="toggle-switch-blue"></button>
+
+<!-- Radio -->
+<div>
+  <input type="radio" name="test" value="a" class="radio-violet" />
+  <input type="radio" name="test" value="b" class="radio-violet" />
+  <input type="radio" name="test" value="c" class="radio-violet" />
+</div>
 ```
 
 ## Adding custom colors

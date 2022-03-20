@@ -155,10 +155,12 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@ramosdiego/ui@^0.0.12":
-  version "0.0.12"
-  resolved "https://registry.yarnpkg.com/@ramosdiego/ui/-/ui-0.0.12.tgz#9c1a41c8cf460425113cb47841b71380158dacd5"
-  integrity sha512-J7tG7RBvp0vjrGQZv+Iv2ZvjSRv4J7Vjp9RqwyGB6rYiJ7nepFDujaM8fXz2TruPaxXrkvkSEGicTFedQFBgfA==
+"@ramosdiego/ui@^0.0.13":
+  version "0.0.13"
+  resolved "https://registry.yarnpkg.com/@ramosdiego/ui/-/ui-0.0.13.tgz#388daff29e4cc602fec3ccfbdd3c3cd4f026daa4"
+  integrity sha512-KMoSeiRLoU9Yw3H9Bm7Ey9gYP8KiFtWZDmjMRMgBQF298D6A5K/Wspw4ggkv2SrwhFkeP2MbQCugPbbmi0WyAA==
+  dependencies:
+    mini-svg-data-uri "^1.4.4"
 
 "@rushstack/eslint-patch@^1.0.8":
   version "1.1.0"
@@ -1381,6 +1383,11 @@ micromatch@^4.0.4:
   dependencies:
     braces "^3.0.1"
     picomatch "^2.2.3"
+
+mini-svg-data-uri@^1.4.4:
+  version "1.4.4"
+  resolved "https://registry.yarnpkg.com/mini-svg-data-uri/-/mini-svg-data-uri-1.4.4.tgz#8ab0aabcdf8c29ad5693ca595af19dd2ead09939"
+  integrity sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==
 
 minimatch@^3.0.4:
   version "3.0.4"
